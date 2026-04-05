@@ -22,8 +22,8 @@ cargo new projects/cli_app
 
 ```bash
 cargo run -p hello_rust
-cargo run -p ownership
-cargo run -p cli_app
+
+./target/debug/hello_rust
 ```
 
 ## Table of Content
