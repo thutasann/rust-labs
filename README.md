@@ -1,5 +1,7 @@
 # Rust Labs
 
+A personal collection of Rust projects exploring systems programming, concurrency, CLI tools, and performance-focused design.
+
 ## Workspace
 
 ```.toml
