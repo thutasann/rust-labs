@@ -11,6 +11,11 @@ fn main() {
   basics::var::mutable_var();
   basics::var::constants_sample_one();
 
+  println!("\n=========== Shadowing ===========\n");
+  basics::shadowing::shadowing_sample_one();
+  basics::shadowing::shadowing_sample_two();
+  basics::shadowing::shadowing_vs_mutability();
+
   println!("\n=========== Scalars & Compound Data Types ===========\n");
   basics::scalar_compound_data_types::scalar_compound_data_types();
 
@@ -19,4 +24,6 @@ fn main() {
 
   println!("\n=========== Arrays ===========\n");
   basics::arrays::array_sample_one();
+
+  // basics::shadowing::real_world_shadowing()
 }
