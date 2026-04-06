@@ -15,6 +15,7 @@ fn main() {
   basics::shadowing::shadowing_sample_one();
   basics::shadowing::shadowing_sample_two();
   basics::shadowing::shadowing_vs_mutability();
+  // basics::shadowing::real_world_shadowing()
 
   println!("\n=========== Scalars & Compound Data Types ===========\n");
   basics::scalar_compound_data_types::scalar_compound_data_types();
@@ -25,5 +26,7 @@ fn main() {
   println!("\n=========== Arrays ===========\n");
   basics::arrays::array_sample_one();
 
-  // basics::shadowing::real_world_shadowing()
+  println!("\n=========== Macros ===========\n");
+  basics::macros::marco_sample_one();
+  basics::macros::macro_sample_two();
 }
