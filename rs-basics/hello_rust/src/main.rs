@@ -29,4 +29,9 @@ fn main() {
   println!("\n=========== Macros ===========\n");
   basics::macros::marco_sample_one();
   basics::macros::macro_sample_two();
+
+  println!("\n=========== Control flows ===========\n");
+  basics::control_flow::if_sample_one();
+  basics::control_flow::if_logical_sample();
+  basics::control_flow::using_if_in_let_stmt();
 }

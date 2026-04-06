@@ -1,5 +1,6 @@
 pub mod arrays;
 pub mod comments;
+pub mod control_flow;
 pub mod functions;
 pub mod macros;
 pub mod scalar_compound_data_types;
