@@ -11,3 +11,9 @@ pub fn mutable_var() {
   y = 20;
   println!("the value of y is: {}", y);
 }
+
+const SERVER_ADDRESS: &str = "192.168.1.1";
+
+pub fn constants_sample_one() {
+  println!("Server Address: {}", SERVER_ADDRESS)
+}

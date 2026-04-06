@@ -9,6 +9,7 @@ fn main() {
   println!("\n=========== Vars ===========\n");
   basics::var::immutability_by_default();
   basics::var::mutable_var();
+  basics::var::constants_sample_one();
 
   println!("\n=========== Scalars & Compound Data Types ===========\n");
   basics::scalar_compound_data_types::scalar_compound_data_types();
