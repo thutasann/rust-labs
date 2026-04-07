@@ -21,3 +21,38 @@ pub fn using_if_in_let_stmt() {
   let number = if condition { 10 } else { 5 };
   println!("the value of number is {}", number)
 }
+
+#[allow(dead_code)]
+pub fn infinite_loop() {
+  loop {
+    println!("this will run forever!")
+  }
+}
+
+pub fn break_loop() {
+  let mut count = 0;
+
+  loop {
+    count += 1;
+    println!("count: {}", count);
+
+    if count == 5 {
+      break;
+    }
+  }
+
+  println!("Loop ended at count: {}", count)
+}
+
+pub fn returning_values_from_loop() {
+  let mut count = 0;
+  let result = loop {
+    count += 1;
+
+    if count == 10 {
+      break count * 2;
+    }
+  };
+
+  println!("The result is: {}", result)
+}

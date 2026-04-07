@@ -34,4 +34,7 @@ fn main() {
   basics::control_flow::if_sample_one();
   basics::control_flow::if_logical_sample();
   basics::control_flow::using_if_in_let_stmt();
+  // basics::control_flow::infinite_loop();
+  basics::control_flow::break_loop();
+  basics::control_flow::returning_values_from_loop();
 }
