@@ -93,3 +93,72 @@ pub fn continue_sample_one() {
     println!("The number is: {}", i);
   }
 }
+
+pub fn for_loop_sample_one() {
+  let numbers = [1, 2, 3, 4, 5];
+
+  for num in numbers {
+    println!("The number is {}", num)
+  }
+}
+
+pub fn iterating_over_a_range() {
+  for num in 1..=6 {
+    println!("The number is {}", num)
+  }
+}
+
+pub fn while_loop() {
+  let mut number = 3;
+
+  while number == 0 {
+    println!("{}", number);
+    number -= 1;
+  }
+
+  println!("Liftoff!")
+}
+
+pub fn combining_conditions_in_while_loop() {
+  let mut number = 4;
+  let limit = 10;
+
+  while number < limit && number % 2 == 0 {
+    println!("the number is {}", number);
+    number += 2;
+  }
+
+  println!("Loop terminated with number: {}", number);
+}
+
+pub fn break_continue_for_loop() {
+  for num in 1..10 {
+    if num == 5 {
+      println!("Breaking at number : {}", num);
+      break;
+    }
+
+    if num % 2 == 0 {
+      continue;
+    }
+
+    println!("Number: {}", num)
+  }
+}
+
+pub fn break_continue_while_loop() {
+  let num = 0;
+
+  while num < 10 {
+    if num == 5 {
+      println!("Breaking at number : {}", num);
+      break;
+    }
+
+    if num % 2 == 0 {
+      continue;
+    }
+
+    println!("Number: {}", num)
+  }
+}

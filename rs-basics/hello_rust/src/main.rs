@@ -38,5 +38,11 @@ fn main() {
   basics::control_flow::break_loop();
   basics::control_flow::returning_values_from_loop();
   basics::control_flow::label_sample_one();
-  basics::control_flow::continue_sample_one()
+  basics::control_flow::continue_sample_one();
+  basics::control_flow::iterating_over_a_range();
+  basics::control_flow::for_loop_sample_one();
+  basics::control_flow::while_loop();
+  basics::control_flow::combining_conditions_in_while_loop();
+  basics::control_flow::break_continue_for_loop();
+  basics::control_flow::break_continue_while_loop();
 }
