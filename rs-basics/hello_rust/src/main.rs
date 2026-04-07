@@ -37,4 +37,6 @@ fn main() {
   // basics::control_flow::infinite_loop();
   basics::control_flow::break_loop();
   basics::control_flow::returning_values_from_loop();
+  basics::control_flow::label_sample_one();
+  basics::control_flow::continue_sample_one()
 }

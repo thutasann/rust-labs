@@ -56,3 +56,40 @@ pub fn returning_values_from_loop() {
 
   println!("The result is: {}", result)
 }
+
+pub fn label_sample_one() {
+  let mut outer_count = 0;
+
+  'outer: loop {
+    println!("Outer count: {}", outer_count);
+    let mut inner_count = 0;
+
+    loop {
+      println!("Inner count: {}", inner_count);
+      inner_count += 1;
+
+      if inner_count == 2 {
+        break; // this breaks the inner loop
+      }
+
+      if outer_count == 3 {
+        break 'outer; // This break the outer loop
+      }
+    }
+
+    print!("----------------");
+    outer_count += 1;
+  }
+
+  println!("Outer loop ended at count: {}", outer_count);
+}
+
+pub fn continue_sample_one() {
+  for i in 1..=5 {
+    if i == 3 {
+      continue; // skips the iteration when i == 3;
+    }
+
+    println!("The number is: {}", i);
+  }
+}
