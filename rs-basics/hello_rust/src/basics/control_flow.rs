@@ -146,6 +146,7 @@ pub fn break_continue_for_loop() {
   }
 }
 
+#[allow(dead_code)]
 pub fn break_continue_while_loop() {
   let num = 0;
 
@@ -160,5 +161,24 @@ pub fn break_continue_while_loop() {
     }
 
     println!("Number: {}", num)
+  }
+}
+
+pub fn match_sample_one() {
+  let number = 3;
+  match number {
+    1 => println!("One"),
+    2 => println!("Two"),
+    3 => println!("Three"),
+    _ => println!("Something else"),
+  }
+}
+
+pub fn matching_multiple() {
+  let number = 2;
+
+  match number {
+    1 | 2 | 3 => println!("One, Two, or three"),
+    _ => println!("Something else!"),
   }
 }

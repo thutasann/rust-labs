@@ -44,5 +44,7 @@ fn main() {
   basics::control_flow::while_loop();
   basics::control_flow::combining_conditions_in_while_loop();
   basics::control_flow::break_continue_for_loop();
-  basics::control_flow::break_continue_while_loop();
+  // basics::control_flow::break_continue_while_loop();
+  basics::control_flow::match_sample_one();
+  basics::control_flow::matching_multiple();
 }
