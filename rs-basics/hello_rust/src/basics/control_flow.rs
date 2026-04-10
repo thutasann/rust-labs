@@ -182,3 +182,27 @@ pub fn matching_multiple() {
     _ => println!("Something else!"),
   }
 }
+
+pub fn matching_range() {
+  let number = 4;
+  match number {
+    1..=5 => println!("Between one and five"),
+    6..=10 => println!("Between six and ten"),
+    _ => println!("something else"),
+  }
+}
+
+pub fn matching_destructuring() {
+  let pair = (2, -2);
+
+  match pair {
+    (x, y) if x == y => println!("the numbers are equal"),
+    (x, y) if x + y == 0 => println!("the nubers are opposite"),
+    _ => println!("no special properties"),
+  }
+
+  // ignoring values in patterns
+  match pair {
+    (x, _) => println!("The first number is {}", x),
+  }
+}

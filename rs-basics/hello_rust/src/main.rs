@@ -47,4 +47,6 @@ fn main() {
   // basics::control_flow::break_continue_while_loop();
   basics::control_flow::match_sample_one();
   basics::control_flow::matching_multiple();
+  basics::control_flow::matching_range();
+  basics::control_flow::matching_destructuring();
 }
