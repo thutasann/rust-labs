@@ -49,4 +49,9 @@ fn main() {
   basics::control_flow::matching_multiple();
   basics::control_flow::matching_range();
   basics::control_flow::matching_destructuring();
+
+  println!("\n=========== Functions ===========\n");
+  basics::functions::parameter_sample("John Doe");
+  basics::functions::calculate_area(5, 10);
+  basics::functions::expression_sample();
 }
