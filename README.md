@@ -30,6 +30,7 @@ cargo run -p hello_rust
 
 ## Table of Content
 
-| Topic     | Source                 | About       |
-| --------- | ---------------------- | ----------- |
-| Rs Basics | [Source](./rs-basics/) | Rust Basics |
+| Topic      | Source                         | About               |
+| ---------- | ------------------------------ | ------------------- |
+| Rs Basics  | [Source](./rs-basics/)         | Rust Basics         |
+| Rs Trading | [Source](./rs-trading-engine/) | Rust Trading Engine |

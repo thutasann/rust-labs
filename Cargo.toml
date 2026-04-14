@@ -3,4 +3,4 @@ resolver = "3"
 
 members = [
     "rs-basics/hello_rust"
-]
+, "rs-trading-engine"]
