@@ -1,6 +1,6 @@
-use std::{collections::HashMap, fmt::format, hash::Hash};
+use std::{collections::HashMap, hash::Hash};
 
-use crate::matching_engine::orderbook::{Order, OrderBook};
+use crate::matching_engine::{order::Order, orderbook::OrderBook};
 
 // BTCUSD
 // BTC => BASE

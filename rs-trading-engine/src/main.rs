@@ -1,7 +1,9 @@
 mod matching_engine;
 
 use matching_engine::engine::{MatchingEngine, TradingPair};
-use matching_engine::orderbook::{BidOrAsk, Order, OrderBook};
+use matching_engine::orderbook::{BidOrAsk, OrderBook};
+
+use crate::matching_engine::order::Order;
 
 fn main() {
   let buy_order_from_alice = Order::new(BidOrAsk::Bid, 5.5);
