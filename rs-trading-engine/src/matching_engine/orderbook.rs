@@ -6,7 +6,6 @@ pub enum BidOrAsk {
   Ask,
 }
 
-// -------- OrderBook -----------
 #[derive(Debug)]
 pub struct OrderBook {
   asks: HashMap<Price, Limit>,
@@ -49,8 +48,6 @@ impl OrderBook {
   }
 }
 
-// -------- Price -----------
-
 #[derive(Debug, Eq, PartialEq, Hash, Clone, Copy)]
 pub struct Price {
   integral: u64,
@@ -71,8 +68,6 @@ impl Price {
   }
 }
 
-// -------- Limit -----------
-
 #[derive(Debug)]
 pub struct Limit {
   price: Price,
@@ -91,8 +86,6 @@ impl Limit {
     self.orders.push(order);
   }
 }
-
-// -------- Order -----------
 
 #[derive(Debug)]
 pub struct Order {
