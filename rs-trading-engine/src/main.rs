@@ -14,9 +14,13 @@ fn main() {
   let sell_order = Order::new(BidOrAsk::Ask, 6.5);
   orderbook.add_order(20.0, sell_order);
 
-  println!("{:?}", orderbook);
+  // println!("{:?}", orderbook);
 
   let mut engine = MatchingEngine::new();
   let pair = TradingPair::new("BTC".to_string(), "USD".to_string());
-  engine.add_new_market(pair);
+  engine.add_new_market(pair.clone());
+
+  let buy_order = Order::new(BidOrAsk::Ask, 6.5);
+  // let eth_pair = TradingPair::new("ETH".to_string(), "USD".to_string());  // testing purpose
+  engine.place_limit_order(pair, 10.000, buy_order).unwrap();
 }
