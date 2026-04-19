@@ -3,6 +3,19 @@ pub mod tests {
   use crate::matching_engine::{limit::Limit, order::Order, orderbook::BidOrAsk, price::Price};
 
   #[test]
+  fn limit_total_volume() {
+    let price = Price::new(10000.0);
+    let mut limit = Limit::new(price);
+    let buy_limit_order_a = Order::new(BidOrAsk::Bid, 100.0);
+    let buy_limit_order_b = Order::new(BidOrAsk::Bid, 100.0);
+
+    limit.add_order(buy_limit_order_a);
+    limit.add_order(buy_limit_order_b);
+
+    assert_eq!(limit.total_volume(), 200.0)
+  }
+
+  #[test]
   fn limit_order_multi_fill() {
     let price = Price::new(10000.0);
     let mut limit = Limit::new(price);

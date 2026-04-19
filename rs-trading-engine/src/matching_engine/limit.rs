@@ -14,6 +14,15 @@ impl Limit {
     }
   }
 
+  pub fn total_volume(&self) -> f64 {
+    return self
+      .orders
+      .iter()
+      .map(|order| order.size)
+      .reduce(|a, b| a + b)
+      .unwrap();
+  }
+
   pub fn fill_order(&mut self, market_order: &mut Order) {
     for limit_order in self.orders.iter_mut() {
       match market_order.size >= limit_order.size {
