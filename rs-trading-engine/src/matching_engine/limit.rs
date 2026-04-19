@@ -2,8 +2,8 @@ use crate::matching_engine::{order::Order, price::Price};
 
 #[derive(Debug)]
 pub struct Limit {
-  price: Price,
-  orders: Vec<Order>,
+  pub price: Price,
+  pub orders: Vec<Order>,
 }
 
 impl Limit {
@@ -25,6 +25,10 @@ impl Limit {
           limit_order.size -= market_order.size;
           market_order.size = 0.0;
         }
+      }
+
+      if market_order.is_filled() {
+        break;
       }
     }
   }

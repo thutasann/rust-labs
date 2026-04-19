@@ -10,4 +10,8 @@ impl Order {
   pub fn new(bid_or_ask: BidOrAsk, size: f64) -> Order {
     Order { size, bid_or_ask }
   }
+
+  pub fn is_filled(&self) -> bool {
+    self.size == 0.0
+  }
 }
