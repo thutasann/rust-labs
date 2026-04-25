@@ -1,6 +1,9 @@
+#![allow(dead_code)]
+
+use rust_decimal::prelude::*;
 use std::collections::HashMap;
 
-use crate::matching_engine::{limit::Limit, order::Order, price::Price};
+use crate::matching_engine::{limit::Limit, order::Order};
 
 #[derive(Debug)]
 pub enum BidOrAsk {
@@ -10,8 +13,8 @@ pub enum BidOrAsk {
 
 #[derive(Debug)]
 pub struct OrderBook {
-  asks: HashMap<Price, Limit>,
-  bids: HashMap<Price, Limit>,
+  asks: HashMap<Decimal, Limit>,
+  bids: HashMap<Decimal, Limit>,
 }
 
 impl OrderBook {
@@ -27,6 +30,10 @@ impl OrderBook {
       BidOrAsk::Ask => {
         for limit_order in self.ask_limits() {
           limit_order.fill_order(market_order);
+
+          if market_order.is_filled() {
+            break;
+          }
         }
       }
       BidOrAsk::Bid => {}
@@ -38,9 +45,11 @@ impl OrderBook {
     return self.asks.values_mut().collect::<Vec<&mut Limit>>();
   }
 
-  pub fn add_order(&mut self, price: f64, order: Order) {
-    let price = Price::new(price);
+  pub fn bid_limits(&mut self) -> Vec<&mut Limit> {
+    return self.bids.values_mut().collect::<Vec<&mut Limit>>();
+  }
 
+  pub fn add_order(&mut self, price: Decimal, order: Order) {
     match order.bid_or_ask {
       BidOrAsk::Bid => match self.bids.get_mut(&price) {
         Some(limit) => {

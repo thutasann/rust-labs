@@ -1,10 +1,12 @@
 #[cfg(test)]
 pub mod tests {
-  use crate::matching_engine::{limit::Limit, order::Order, orderbook::BidOrAsk, price::Price};
+  use rust_decimal_macros::dec;
+
+  use crate::matching_engine::{limit::Limit, order::Order, orderbook::BidOrAsk};
 
   #[test]
   fn limit_total_volume() {
-    let price = Price::new(10000.0);
+    let price = dec!(10000);
     let mut limit = Limit::new(price);
     let buy_limit_order_a = Order::new(BidOrAsk::Bid, 100.0);
     let buy_limit_order_b = Order::new(BidOrAsk::Bid, 100.0);
@@ -17,7 +19,7 @@ pub mod tests {
 
   #[test]
   fn limit_order_multi_fill() {
-    let price = Price::new(10000.0);
+    let price = dec!(10000);
     let mut limit = Limit::new(price);
     let buy_limit_order_a = Order::new(BidOrAsk::Bid, 100.0);
     let buy_limit_order_b = Order::new(BidOrAsk::Bid, 100.0);
@@ -37,7 +39,7 @@ pub mod tests {
 
   #[test]
   fn limit_order_single_fill() {
-    let price = Price::new(10000.0);
+    let price = dec!(10000);
     let mut limit = Limit::new(price);
     let buy_limit_order = Order::new(BidOrAsk::Bid, 100.0);
     limit.add_order(buy_limit_order);

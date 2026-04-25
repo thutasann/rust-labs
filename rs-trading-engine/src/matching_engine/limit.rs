@@ -1,13 +1,16 @@
-use crate::matching_engine::{order::Order, price::Price};
+#![allow(dead_code)]
+
+use crate::matching_engine::order::Order;
+use rust_decimal::prelude::*;
 
 #[derive(Debug)]
 pub struct Limit {
-  pub price: Price,
+  pub price: Decimal,
   pub orders: Vec<Order>,
 }
 
 impl Limit {
-  pub fn new(price: Price) -> Limit {
+  pub fn new(price: Decimal) -> Limit {
     Limit {
       price: price,
       orders: Vec::new(),

@@ -1,5 +1,7 @@
 use std::{collections::HashMap, hash::Hash};
 
+use rust_decimal::Decimal;
+
 use crate::matching_engine::{order::Order, orderbook::OrderBook};
 
 // BTCUSD
@@ -40,7 +42,7 @@ impl MatchingEngine {
   pub fn place_limit_order(
     &mut self,
     pair: TradingPair,
-    price: f64,
+    price: Decimal,
     order: Order,
   ) -> Result<(), String> {
     match self.orderbooks.get_mut(&pair) {

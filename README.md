@@ -24,6 +24,7 @@ cargo new projects/cli_app
 
 ```bash
 cargo run -p hello_rust
+cargo test -p hello_rust
 
 ./target/debug/hello_rust
 ```
