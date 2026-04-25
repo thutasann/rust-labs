@@ -2,7 +2,11 @@
 pub mod tests {
   use rust_decimal_macros::dec;
 
-  use crate::matching_engine::{limit::Limit, order::Order, orderbook::BidOrAsk};
+  use crate::matching_engine::{
+    limit::Limit,
+    order::Order,
+    orderbook::{BidOrAsk, OrderBook},
+  };
 
   #[test]
   fn limit_total_volume() {
@@ -49,5 +53,25 @@ pub mod tests {
 
     assert_eq!(market_sell_order.is_filled(), true);
     assert_eq!(limit.orders.get(0).unwrap().size, 1.0);
+  }
+
+  #[test]
+  fn orderbook_fill_market_order_ask() {
+    let mut orderbook = OrderBook::new();
+    orderbook.add_order(dec!(500), Order::new(BidOrAsk::Ask, 10.0));
+    orderbook.add_order(dec!(100), Order::new(BidOrAsk::Ask, 10.0));
+    orderbook.add_order(dec!(200), Order::new(BidOrAsk::Ask, 10.0));
+    orderbook.add_order(dec!(300), Order::new(BidOrAsk::Ask, 10.0));
+
+    let mut market_order = Order::new(BidOrAsk::Ask, 10.0);
+    orderbook.fill_market_order(&mut market_order);
+
+    let ask_limits = orderbook.ask_limits();
+    let matched_limit = ask_limits.get(0).unwrap();
+    assert_eq!(matched_limit.price, dec!(100));
+    assert_eq!(market_order.is_filled(), true);
+
+    let matched_order = matched_limit.orders.get(0).unwrap();
+    assert_eq!(matched_order.is_filled(), true);
   }
 }
