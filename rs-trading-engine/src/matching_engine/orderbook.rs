@@ -26,27 +26,35 @@ impl OrderBook {
   }
 
   pub fn fill_market_order(&mut self, market_order: &mut Order) {
-    match market_order.bid_or_ask {
-      BidOrAsk::Ask => {
-        for limit_order in self.ask_limits() {
-          limit_order.fill_order(market_order);
+    let limits = match market_order.bid_or_ask {
+      BidOrAsk::Ask => self.ask_limits(),
+      BidOrAsk::Bid => self.bid_limits(),
+    };
 
-          if market_order.is_filled() {
-            break;
-          }
-        }
+    for limit_order in limits {
+      limit_order.fill_order(market_order);
+
+      if market_order.is_filled() {
+        break;
       }
-      BidOrAsk::Bid => {}
     }
   }
 
-  // TODO: Sorting!!
+  // BID (BUY ORDER) => ASKS limit => sorted cheapest price
   pub fn ask_limits(&mut self) -> Vec<&mut Limit> {
-    return self.asks.values_mut().collect::<Vec<&mut Limit>>();
+    let mut limits = self.asks.values_mut().collect::<Vec<&mut Limit>>();
+
+    limits.sort_by(|a, b| a.price.cmp(&b.price));
+
+    limits
   }
 
+  // ASK (SELL ORDER) => BIDS limit => sorted highest price
   pub fn bid_limits(&mut self) -> Vec<&mut Limit> {
-    return self.bids.values_mut().collect::<Vec<&mut Limit>>();
+    let mut limits = self.bids.values_mut().collect::<Vec<&mut Limit>>();
+    limits.sort_by(|a, b| b.price.cmp(&a.price));
+
+    limits
   }
 
   pub fn add_order(&mut self, price: Decimal, order: Order) {
